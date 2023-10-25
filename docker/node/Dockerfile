@@ -19,6 +19,9 @@ RUN \
     \
     echo "adding nvm.sh to .bashrc to run nvm every login. It will set up nodejs version" &&\
     echo "source /home/app/.nvm/nvm.sh" >> ~/.bashrc
+    \
+    echo "installing vscode server" &&\
+    curl -fsSL https://code-server.dev/install.sh | sh
 
 USER app:app
 ARG VERSION_NODE
