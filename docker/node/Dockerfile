@@ -21,7 +21,7 @@ RUN \
     echo "source /home/app/.nvm/nvm.sh" >> ~/.bashrc
 
 USER app:app
-ARG NODE_VERSION
+ARG VERSION_NODE
 RUN \
     echo "downloading and installing nvm" &&\
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash &&\
@@ -34,10 +34,10 @@ RUN \
     . "$NVM_DIR/nvm.sh" &&\
     \
     echo "installing node" &&\
-    nvm install "$NODE_VERSION" &&\
+    nvm install "$VERSION_NODE" &&\
     \
     echo "setting up nodejs version" &&\
-    nvm use "$NODE_VERSION" &&\
+    nvm use "$VERSION_NODE" &&\
     \
     echo "adding nvm.sh to .bashrc to run it every login. It set up nodejs version" &&\
     echo "source /home/app/.nvm/nvm.sh" >> /home/app/.bashrc

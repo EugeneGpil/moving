@@ -18,19 +18,8 @@ services:
     user: "${ID_USER:-1000}:${ID_GROUP:-1000}"
     ports:
       - "9000:9000" # for vite dev websocket
+      - "${PORT_NODE:-80}:5173"
     restart: unless-stopped
-    networks:
-      - app
-
-  nginx:
-    build:
-      context: docker/nginx
-    working_dir: /usr/share/nginx/front
-    volumes:
-      - ../front:/usr/share/nginx/front
-    restart: unless-stopped
-    ports:
-      - ${PORT_NGINX:-80}:80
     networks:
       - app
 
