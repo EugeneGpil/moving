@@ -1,0 +1,41 @@
+version '3.8'
+
+services:
+
+  node:
+    build:
+      context: docker/node
+      args:
+        - ID_GROUP=${ID_GROUP:-1000}
+        - ID_USER=${ID_USER:-1000}
+        - VERSION_NODE=20.9.0
+    working_dir: /usr/share/nginx/front
+    volumes:
+      - ./:/usr/share/nginx/front
+    environment:
+      - HOST=0.0.0.0
+    command: tail -F anything
+    user: "${ID_USER:-1000}:${ID_GROUP:-1000}"
+    ports:
+      - "9000:9000" # for vite dev websocket
+    restart: unless-stopped
+    networks:
+      - app
+
+  nginx:
+    build:
+      context: docker/nginx
+    working_dir: /usr/share/nginx/front
+    volumes:
+      - ../front:/usr/share/nginx/front
+    restart: unless-stopped
+    ports:
+      - ${PORT_NGINX:-80}:80
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
+    driver_opts:
+      com.docker.network.driver.mtu: "${MTU:-1500}"
