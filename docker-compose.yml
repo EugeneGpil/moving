@@ -8,14 +8,14 @@ services:
       args:
         - ID_GROUP=${ID_GROUP:-1000}
         - ID_USER=${ID_USER:-1000}
-        - VERSION_NODE=20.9.0
+        - VERSION_NODE=${VERSION_NODE:-20.9.0}
     working_dir: /usr/share/nginx/front
     volumes:
       - ./:/usr/share/nginx/front
     environment:
       - HOST=0.0.0.0
     command: tail -F anything
-    user: "${ID_USER:-1000}:${ID_GROUP:-1000}"
+    user: "${ID_USER}:${ID_GROUP}"
     ports:
       - "9000:9000" # for vite dev websocket
       - "${PORT_NODE:-80}:5173"

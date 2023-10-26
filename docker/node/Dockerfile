@@ -7,10 +7,10 @@ ARG ID_USER
 ARG ID_GROUP
 RUN \
     echo "adding group app" &&\
-    groupadd -g "$ID_GROUP" app &&\
+    groupadd -g ${ID_GROUP} app &&\
     \
     echo "adding user app and adding him to group app" &&\
-    useradd -u "$ID_USER" -m app -g app &&\
+    useradd -u ${ID_USER} -m app -g app &&\
     \
     apt-get update &&\
     \
@@ -18,7 +18,7 @@ RUN \
     apt-get install curl nano git software-properties-common -y &&\
     \
     echo "adding nvm.sh to .bashrc to run nvm every login. It will set up nodejs version" &&\
-    echo "source /home/app/.nvm/nvm.sh" >> ~/.bashrc
+    echo "source /home/app/.nvm/nvm.sh" >> ~/.bashrc &&\
     \
     echo "installing vscode server" &&\
     curl -fsSL https://code-server.dev/install.sh | sh
@@ -37,10 +37,10 @@ RUN \
     . "$NVM_DIR/nvm.sh" &&\
     \
     echo "installing node" &&\
-    nvm install "$VERSION_NODE" &&\
+    nvm install ${VERSION_NODE} &&\
     \
     echo "setting up nodejs version" &&\
-    nvm use "$VERSION_NODE" &&\
+    nvm use ${VERSION_NODE} &&\
     \
     echo "adding nvm.sh to .bashrc to run it every login. It set up nodejs version" &&\
     echo "source /home/app/.nvm/nvm.sh" >> /home/app/.bashrc

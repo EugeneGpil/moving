@@ -1,0 +1,19 @@
+{
+    "build": {
+        "dockerfile": "docker/node/Dockerfile",
+        "args": {
+            "ID_GROUP": "1000",
+            "ID_USER": "1000",
+            "VERSION_NODE": "20.9.0"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.go",
+                "streetsidesoftware.code-spell-checker",
+                "ms-vscode.makefile-tools"
+            ]
+        }
+    }
+}
