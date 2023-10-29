@@ -10,7 +10,10 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "golang.go",
+                "Vue.volar",
+                "Vue.vscode-typescript-vue-plugin",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
                 "streetsidesoftware.code-spell-checker",
                 "ms-vscode.makefile-tools"
             ]
