@@ -1,7 +1,7 @@
 <template>
-  <TheWelcome />
+  <GameWidget />
 </template>
 
 <script setup lang="ts">
-import TheWelcome from '../widgets/GameWidget.vue'
+import GameWidget from '../widgets/GameWidget.vue'
 </script>
