@@ -3,37 +3,21 @@
 </template>
 
 <script lang="ts">
-import * as THREE from 'three'
+import { mapStores } from 'pinia'
+import { usePlayerStore } from '@/stores/playerStore'
+import { useRendererStore } from '@/stores/rendererStore'
 
 export default {
-  mounted() {
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    )
+  mounted(): undefined {
+    this.rendererStore.setCanvas(this.$refs.canvas as HTMLCanvasElement)
+    this.rendererStore.run()
 
-    const renderer = new THREE.WebGLRenderer({
-      canvas: this.$refs.canvas as HTMLCanvasElement
-    })
-
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-    const cube = new THREE.Mesh(geometry, material)
-    scene.add(cube)
-
-    camera.position.z = 5
-
-    function animate() {
-      requestAnimationFrame(animate)
-      renderer.render(scene, camera)
-
-      cube.rotation.x += 0.01
-      cube.rotation.y += 0.01
-    }
-    animate()
+    setTimeout(() => {
+      usePlayerStore().goUp()
+    }, 1000)
+  },
+  computed: {
+    ...mapStores(usePlayerStore, useRendererStore)
   }
 }
 </script>
