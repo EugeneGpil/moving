@@ -1,12 +1,16 @@
 :root {
   --color-background: #ccc;
   --color-text: #222;
+  --color-feature: var(--color-text);
+  --color-feature-text: var(--color-background);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #222;
     --color-text: #ccc;
+    --color-feature: var(--color-text);
+    --color-feature-text: var(--color-background);
   }
 }
 
