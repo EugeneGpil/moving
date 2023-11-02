@@ -1,7 +1,16 @@
 <template>
-  <GameWidget />
+  <WorldWidget />
+  <DirectionsWidget />
 </template>
 
-<script setup lang="ts">
-import GameWidget from '../widgets/GameWidget.vue'
+<script lang="ts">
+import WorldWidget from '../widgets/WorldWidget.vue'
+import DirectionsWidget from '../widgets/DirectionsWidget.vue'
+
+export default {
+  components: {
+    WorldWidget,
+    DirectionsWidget
+  }
+}
 </script>
