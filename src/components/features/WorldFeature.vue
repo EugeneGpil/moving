@@ -11,10 +11,6 @@ export default {
   mounted(): undefined {
     this.rendererStore.setCanvas(this.$refs.canvas as HTMLCanvasElement)
     this.rendererStore.run()
-
-    setTimeout(() => {
-      usePlayerStore().goUp()
-    }, 1000)
   },
   computed: {
     ...mapStores(usePlayerStore, useRendererStore)
