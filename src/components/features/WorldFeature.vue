@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { mapStores } from 'pinia'
-import { usePlayerStore } from '@/stores/playerStore'
+import { usePlayerStore } from '@/stores/player/playerStore.js'
 import { useRendererStore } from '@/stores/rendererStore'
 
 export default {

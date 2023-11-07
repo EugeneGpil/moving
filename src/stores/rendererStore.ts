@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { usePlayerStore } from './playerStore'
+import { usePlayerStore } from './player/playerStore'
 import * as THREE from 'three'
 
 type State = {

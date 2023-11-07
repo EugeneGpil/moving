@@ -5,7 +5,7 @@
 <script lang="ts">
 import BaseArrowFeatureVue from './BaseArrowFeature.vue'
 
-import { usePlayerStore } from '@/stores/playerStore'
+import { usePlayerStore } from '@/stores/player/playerStore'
 
 export default {
   components: {

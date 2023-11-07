@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { usePlayerStore } from '@/stores/playerStore'
+import { usePlayerStore } from '@/stores/player/playerStore'
 import BaseArrowFeatureVue from './BaseArrowFeature.vue'
 
 export default {
