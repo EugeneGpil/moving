@@ -18,12 +18,20 @@ export const useRendererStore = defineStore('renderer', {
       this.renderer.render(this.scene, this.camera)
     },
     run(): undefined {
+      window.addEventListener('resize', (): undefined => {
+        this.updateScreenSize()
+      }, true);
+
       const animate = (): undefined => {
         requestAnimationFrame(animate)
         this.render()
       }
       animate()
-    }
+    },
+    updateScreenSize(): undefined {
+      this.camera.aspect = window.innerWidth / window.innerHeight
+      this.camera.updateProjectionMatrix();
+    },
   },
   getters: {
     renderer(): THREE.WebGLRenderer {
